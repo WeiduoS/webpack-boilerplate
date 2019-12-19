@@ -21,3 +21,5 @@ class A {
 function decorate(obj) {}
 
 "aaa".includes('a');
+
+var imgSrc = require('../images/sort_down.png');

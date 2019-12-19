@@ -51,6 +51,17 @@ module.exports = {
                 }
             },
             {
+                test: /\.(jpg|png|gif|woff|svg|eot|ttf)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name]_[hash].[ext]',
+                        outputPath: '/images/',
+                        limit: 8192,
+                    }
+                }
+            },
+            {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
