@@ -51,17 +51,6 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jpg|png|gif|woff|svg|eot|ttf)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        name: '[name]_[hash].[ext]',
-                        outputPath: '/images/',
-                        limit: 8192,
-                    }
-                }
-            },
-            {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -80,10 +69,18 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: '/asset/images/'
+                }
+            }
         ]
     },
     devtool: 'source-map',
-    watch: true,
+    watch: false,
     watchOptions: {
         poll: 1000,
         aggregateTimeout: 1000,
